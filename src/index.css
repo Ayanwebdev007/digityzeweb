@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/* ============================================
+   DIGITYZE INTERNATIONAL — Design System
+   General Sans + Navy/Blue Brand Palette (Light Theme)
+   Tailwind CSS v4 Theme Configuration
+   ============================================ */
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('https://cdn.fontshare.com/wf/HUZA5NFHKXD2PSFTIQZWUWFWRQ3HCMZP/RUJ5YL7KXFXZNKCLHIXAFHOQZRDBBFVG/RMUJJ2OQHPN3FJ5GGISQR3HFY6BW273H.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Brand Colors — Navy/Blue Palette */
+  --color-navy-950: #001a33;
+  --color-navy-900: #002b55;
+  --color-navy-800: #003d7a;
+  --color-navy-700: #004fa0;
+  --color-navy-600: #0062c6;
+  --color-navy-500: #0074ed;
+  --color-navy-400: #3d94f2;
+  --color-navy-300: #7ab5f7;
+  --color-navy-200: #b8d7fb;
+  --color-navy-100: #e0edfd;
+  --color-navy-50: #f0f6fe;
+
+  /* Brand Primary & Accent */
+  --color-brand-primary: #003366; /* Deep navy */
+  --color-brand-dark: #00264d;
+  --color-brand-darker: #001a33;
+  --color-brand-accent: #0052cc; /* Sapphire blue accent */
+  --color-brand-accent-dark: #003d99;
+
+  /* Surface Colors (Light Theme overrides) */
+  --color-surface-dark: #fafbfc; /* Page bg */
+  --color-surface-900: #ffffff; /* Card bg */
+  --color-surface-800: #f1f5f9; /* Light grey backdrop */
+  --color-surface-700: #e2e8f0; /* Light borders */
+  --color-surface-600: #cbd5e1;
+  --color-surface-500: #94a3b8;
+
+  /* Text Colors (Light Theme high contrast) */
+  --color-text-primary: #0f172a; /* Slate-900 */
+  --color-text-secondary: #334155; /* Slate-700 */
+  --color-text-muted: #64748b; /* Slate-500 */
+
+  /* Font Family */
+  --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
+
+  /* Custom spacing */
+  --spacing-18: 4.5rem;
+
+  /* Animations */
+  --animate-fade-up: fade-up 0.7s ease-out forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-slide-right: slide-right 0.6s ease-out forwards;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 51, 102, 0.08); }
+  50% { box-shadow: 0 0 40px rgba(0, 51, 102, 0.15); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================================
+   Base Styles (using @layer for proper ordering)
+   ============================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'General Sans', system-ui, -apple-system, sans-serif;
+    background-color: #fafbfc;
+    color: #0f172a;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(0, 51, 102, 0.15);
+    color: #003366;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+/* ============================================
+   Custom Component Classes
+   ============================================ */
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 51, 102, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 51, 102, 0.02);
+  }
+
+  .glass-card-strong {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.04);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #00264d, #0052cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-brand {
+    background: linear-gradient(135deg, #003366, #0052cc, #0074ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #003366 0%, #0052cc 50%, #003366 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 51, 102, 0.08), transparent);
+  }
+}
+
+/* ============================================
+   Custom Utilities 
+   ============================================ */
+
+@utility glass-bg {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 51, 102, 0.06);
+}
