@@ -16,6 +16,14 @@ function Hero() {
 
   const slides = [
     {
+      image: '/images/team_collaboration.png',
+      badge: 'SaaS Platforms',
+      title: 'Launch and Scale Your Custom Platform',
+      desc: 'We build secure, cloud-hosted subscription platforms for teams worldwide.',
+      actionText: 'Build Your SaaS',
+      link: '/services'
+    },
+    {
       image: '/images/marketing_leads.png',
       badge: 'Digital Marketing & Leads',
       title: 'Get Active Business Leads Automatically',
@@ -29,14 +37,6 @@ function Hero() {
       title: 'Save 15+ Hours of Paperwork Weekly',
       desc: 'Eliminate manual billing mistakes with simple, mobile-friendly order trackers.',
       actionText: 'Explore Software',
-      link: '/services'
-    },
-    {
-      image: '/images/team_collaboration.png',
-      badge: 'SaaS Platforms',
-      title: 'Launch and Scale Your Custom Platform',
-      desc: 'We build secure, cloud-hosted subscription platforms for teams worldwide.',
-      actionText: 'Build Your SaaS',
       link: '/services'
     }
   ];
