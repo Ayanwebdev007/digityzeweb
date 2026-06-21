@@ -1,3 +1,4 @@
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
 import SectionHeader from '../components/common/SectionHeader';
@@ -6,6 +7,7 @@ import Icon from '../components/common/Icon';
 export default function About() {
   return (
     <main className="bg-white">
+      <SEO title="About" description="Learn about Digityze International, our commitments, global reach, and operating rules focused entirely on your business results and profit margins." url="/about" />
       {/* Premium Dark Hero Section */}
       <section className="relative min-h-screen sm:min-h-0 sm:h-[500px] lg:h-[700px] flex flex-col justify-center pt-28 pb-16 sm:py-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}

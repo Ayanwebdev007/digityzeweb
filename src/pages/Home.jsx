@@ -1,3 +1,4 @@
+import SEO from '../components/common/SEO';
 // forced compile test
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -1118,6 +1119,7 @@ function CTASection() {
 export default function Home() {
   return (
     <main>
+      <SEO title="" description="Digityze International is a global technology and business transformation company helping organizations modernize and scale operations worldwide." url="/" />
       <Hero />
       <GlobalReach />
       <MainServices />

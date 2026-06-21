@@ -1,3 +1,4 @@
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
 import Icon from '../components/common/Icon';
@@ -6,6 +7,7 @@ import { industries } from '../data/content';
 export default function Industries() {
   return (
     <main className="bg-slate-50">
+      <SEO title="Industries" description="We serve multiple domains including Healthcare, Retail, Manufacturing, Finance, Education, and Real Estate with tailored technology solutions." url="/industries" />
       {/* Premium Dark Hero Section */}
       <section className="relative h-[500px] lg:h-[700px] flex flex-col justify-center pt-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}

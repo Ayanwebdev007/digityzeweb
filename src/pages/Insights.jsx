@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from '../components/common/SEO';
 import ScrollReveal from '../components/common/ScrollReveal';
 import { insights } from '../data/content';
 
@@ -13,6 +14,7 @@ export default function Insights() {
 
   return (
     <main className="bg-slate-50">
+      <SEO title="Insights" description="Read our latest tech insights, business modernization trends, and digital transformation strategies." url="/insights" />
       {/* Premium Dark Hero Section */}
       <section className="relative h-[500px] lg:h-[700px] flex flex-col justify-center pt-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}

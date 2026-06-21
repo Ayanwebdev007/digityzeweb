@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from '../components/common/SEO';
 import ScrollReveal from '../components/common/ScrollReveal';
 import Icon from '../components/common/Icon';
 
@@ -29,6 +30,7 @@ export default function Contact() {
 
   return (
     <main className="bg-white">
+      <SEO title="Contact" description="Get in touch with Digityze International for consulting and engineering capabilities to strengthen your operations." url="/contact" />
       {/* Hero */}
       <section className="relative h-[500px] lg:h-[700px] flex flex-col justify-center overflow-hidden bg-brand-primary">
         {/* Abstract Background */}
