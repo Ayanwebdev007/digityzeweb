@@ -40,8 +40,10 @@
   --color-text-secondary: #334155; /* Slate-700 */
   --color-text-muted: #64748b; /* Slate-500 */
 
-  /* Font Family */
+  /* Font Family & Weights */
   --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
+  --font-weight-extrabold: 700;
+  --font-weight-black: 700;
 
   /* Custom spacing */
   --spacing-18: 4.5rem;
