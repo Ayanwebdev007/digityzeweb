@@ -8,29 +8,8 @@
 
 @font-face {
   font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Semibold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Bold.woff2') format('woff2');
-  font-weight: 700;
+  src: url('https://cdn.fontshare.com/wf/HUZA5NFHKXD2PSFTIQZWUWFWRQ3HCMZP/RUJ5YL7KXFXZNKCLHIXAFHOQZRDBBFVG/RMUJJ2OQHPN3FJ5GGISQR3HFY6BW273H.woff2') format('woff2');
+  font-weight: 200 700;
   font-style: normal;
   font-display: swap;
 }
@@ -69,10 +48,8 @@
   --color-text-secondary: #334155; /* Slate-700 */
   --color-text-muted: #64748b; /* Slate-500 */
 
-  /* Font Family & Weights */
+  /* Font Family */
   --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
-  --font-weight-extrabold: 700;
-  --font-weight-black: 700;
 
   /* Custom spacing */
   --spacing-18: 4.5rem;
