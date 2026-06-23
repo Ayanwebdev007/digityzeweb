@@ -125,12 +125,21 @@ export default function InsightDetail() {
               </div>
             )}
             
-            <div className="ql-snow">
-              <div 
-                className="ql-editor !p-0 !text-slate-700 text-lg leading-relaxed font-medium"
-                dangerouslySetInnerHTML={{ __html: post.content }} 
-              />
-            </div>
+            {/* Premium Typography Renderer */}
+            <article 
+              className="prose prose-base prose-slate max-w-none font-sans
+                         prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900
+                         prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base
+                         prose-p:text-slate-600 prose-p:leading-relaxed prose-p:font-medium prose-p:text-[17px]
+                         prose-a:text-brand-primary prose-a:font-bold hover:prose-a:text-brand-accent prose-a:no-underline
+                         prose-img:rounded-2xl prose-img:w-full
+                         prose-ul:text-slate-600 prose-ol:text-slate-600 prose-li:font-medium prose-li:text-[17px] prose-li:marker:text-brand-accent
+                         prose-blockquote:border-l-brand-accent prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:font-semibold prose-blockquote:text-slate-700
+                         prose-strong:text-slate-900 prose-strong:font-bold
+                         break-words overflow-hidden"
+              style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}
+              dangerouslySetInnerHTML={{ __html: post.content }} 
+            />
             
             <div className="mt-16 pt-8 border-t border-slate-200 text-center">
               <Link to="/insights" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold uppercase tracking-wider text-sm transition-all">
