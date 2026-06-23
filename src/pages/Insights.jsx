@@ -1,12 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { db } from '../config/firebase';
+import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import ScrollReveal from '../components/common/ScrollReveal';
-import { insights } from '../data/content';
 
-const categories = ['All', 'Business', 'Technology', 'SaaS'];
+const categories = ['All', 'Technology', 'Strategy', 'Design', 'Marketing', 'Automation', 'Cloud'];
 
 export default function Insights() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [insights, setInsights] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const q = query(collection(db, 'insights'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const postsData = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setInsights(postsData);
+      setLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
 
   const filteredInsights = activeCategory === 'All'
     ? insights
@@ -78,88 +96,119 @@ export default function Insights() {
             </div>
           </ScrollReveal>
 
-          {/* Articles Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {filteredInsights.map((insight, i) => (
-              <ScrollReveal key={insight.id} delay={i * 50}>
-                <article
-                  id={`insight-${insight.id}`}
-                  className="bg-white rounded-[24px] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-500 group h-full flex flex-col relative"
-                >
-                  {/* Hover Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
-                  {/* Category color bar */}
-                  <div className="h-1.5 w-full bg-gradient-to-r from-brand-primary to-brand-accent group-hover:from-brand-accent group-hover:to-blue-400 transition-all duration-500" />
-                  
-                  <div className="p-8 flex flex-col flex-1 relative z-10">
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-blue-50 text-brand-primary">
-                        {insight.category}
-                      </span>
-                      <span className="text-slate-400 text-xs font-bold uppercase tracking-widest">
-                        {insight.readTime}
-                      </span>
+          {/* Articles Grid (4 columns for SEO and density) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {loading ? (
+              // Loading Skeletons
+              Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="flex flex-col bg-white rounded-[24px] overflow-hidden border border-slate-200 h-[400px] animate-pulse">
+                  <div className="h-48 w-full bg-slate-200"></div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-5 w-20 bg-slate-200 rounded-full"></div>
                     </div>
-
-                    <h3 className="text-xl font-black text-slate-900 mb-4 group-hover:text-brand-accent transition-colors leading-snug">
-                      {insight.title}
-                    </h3>
-
-                    <p className="text-slate-600 text-sm font-medium leading-relaxed flex-1 mb-8">
-                      {insight.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between pt-6 border-t border-slate-100">
-                      <span className="text-slate-400 text-xs font-black uppercase tracking-widest">{insight.date}</span>
-                      <span className="inline-flex items-center gap-2 text-brand-primary text-sm font-bold 
-                        opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0 duration-300">
-                        Read
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
-                    </div>
+                    <div className="h-6 bg-slate-200 rounded w-full mb-3"></div>
+                    <div className="h-6 bg-slate-200 rounded w-2/3 mb-4"></div>
+                    <div className="h-16 bg-slate-200 rounded mb-4"></div>
                   </div>
-                </article>
-              </ScrollReveal>
-            ))}
+                </div>
+              ))
+            ) : filteredInsights.length === 0 ? (
+               <div className="col-span-full text-center py-24 bg-white rounded-[32px] border border-slate-200">
+                 <svg className="mx-auto h-12 w-12 text-slate-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8" />
+                 </svg>
+                 <h3 className="text-xl font-bold text-slate-900 mb-2">No Insights Published Yet</h3>
+                 <p className="text-slate-500 font-medium">Check back soon for our latest executive perspectives.</p>
+               </div>
+            ) : (
+              filteredInsights.map((insight, i) => (
+                <ScrollReveal key={insight.id} delay={i * 50}>
+                  <Link
+                    to={`/insights/${insight.slug || insight.id}`}
+                    id={`insight-${insight.id}`}
+                    className="group flex flex-col bg-white rounded-[24px] overflow-hidden border border-slate-200 hover:border-brand-accent/50 hover:-translate-y-1 transition-all duration-500 h-full"
+                  >
+                    {/* Top Side: Image */}
+                    <div className="h-48 relative overflow-hidden bg-slate-50 border-b border-slate-100 shrink-0">
+                      {insight.image ? (
+                        <img 
+                          src={insight.image} 
+                          alt={insight.title} 
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                          <svg className="w-10 h-10 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Bottom Side: Content */}
+                    <div className="p-6 flex flex-col flex-1 relative bg-white">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-4 relative z-10">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-blue-50 text-brand-primary border border-blue-100">
+                          {insight.category}
+                        </span>
+                        <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {insight.readTime || '5 MIN'}
+                        </span>
+                      </div>
+                      
+                      <h2 className="text-lg sm:text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-brand-accent transition-colors relative z-10 line-clamp-2">
+                        {insight.title}
+                      </h2>
+                      
+                      <p className="text-slate-600 text-sm font-medium leading-relaxed mb-6 line-clamp-3 relative z-10">
+                        {insight.excerpt}
+                      </p>
+                      
+                      <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4 relative z-10">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                          {insight.createdAt ? insight.createdAt.toDate().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent'}
+                        </span>
+                        <span className="flex items-center text-brand-accent font-black uppercase tracking-wider text-[10px] group-hover:translate-x-1 transition-transform duration-300">
+                          Read 
+                          <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              ))
+            )}
           </div>
         </div>
       </section>
 
-      {/* Premium Newsletter CTA */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* CTA Section */}
+      <section className="py-24 bg-brand-primary text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="relative rounded-[40px] overflow-hidden shadow-2xl bg-brand-primary">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-darker" />
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/20 rounded-full blur-[100px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-[100px] pointer-events-none" />
-              
-              <div className="relative px-8 py-20 lg:px-16 lg:py-24 text-center max-w-4xl mx-auto">
-                <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6">
-                  Stay Informed.
-                </h2>
-                <p className="text-blue-100 text-lg sm:text-xl font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-                  Strategic insights delivered directly to your inbox. Actionable frameworks on digital transformation and operational scale.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-                  <input
-                    type="email"
-                    placeholder="Enter your corporate email"
-                    className="flex-1 px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white 
-                      placeholder:text-blue-200 focus:outline-none focus:border-brand-accent focus:bg-white/20 focus:ring-2 focus:ring-brand-accent/50
-                      transition-all duration-300 text-base font-medium backdrop-blur-md"
-                  />
-                  <button
-                    className="px-8 py-4 bg-white text-brand-primary font-bold rounded-2xl hover:bg-brand-accent hover:text-white transition-all duration-300 shadow-xl shadow-black/10 hover:-translate-y-1 whitespace-nowrap"
-                  >
-                    Subscribe Now
-                  </button>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-white mb-6 tracking-tight">Stay Ahead of the Curve</h2>
+            <p className="text-xl text-blue-100 mb-10 font-medium">Subscribe to Digityze Insights for the latest executive perspectives.</p>
+            <form className="flex flex-col sm:flex-row gap-4 justify-center" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                className="px-6 py-4 rounded-xl bg-white text-slate-900 w-full sm:w-96 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+              />
+              <button 
+                type="submit" 
+                className="px-8 py-4 bg-brand-accent text-brand-dark rounded-xl font-black uppercase tracking-wider hover:bg-white transition-colors duration-300 shadow-lg shadow-brand-accent/20"
+              >
+                Subscribe
+              </button>
+            </form>
           </ScrollReveal>
         </div>
       </section>

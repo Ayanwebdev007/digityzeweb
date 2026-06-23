@@ -43,7 +43,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/digityze-international-opc-pvt-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 
@@ -56,7 +56,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/digityzeint"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 
@@ -69,7 +69,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/digityzeinternational_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 
@@ -134,13 +134,62 @@ export default function Footer() {
               ))}
             </ul>
 
-            {/* Contact Info */}
-            <div className="mt-8">
-              <h4 className="text-white font-bold text-xs mb-4 uppercase tracking-wider">Contact</h4>
-              <div className="space-y-2 text-sm text-slate-300">
-                <p>info@digityze.com</p>
-                <p>India — Global Operations</p>
+          </div>
+        </div>
+
+        {/* Middle Tier: Contact & Office */}
+        <div className="mt-16 pt-12 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8">
+          {/* Contact Us */}
+          <div>
+            <h4 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Contact Us</h4>
+            <div className="space-y-5 text-sm text-slate-300">
+              <p>
+                <a href="mailto:digityzeinternational@gmail.com" className="hover:text-white transition-colors inline-flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <span className="text-base">digityzeinternational@gmail.com</span>
+                </a>
+              </p>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
+                <a href="tel:+916290840416" className="hover:text-white transition-colors inline-flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <span className="text-base">+91 6290840416</span>
+                </a>
+                <a href="tel:+916296314040" className="hover:text-white transition-colors inline-flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <span className="text-base">+91 6296314040</span>
+                </a>
               </div>
+            </div>
+          </div>
+
+          {/* Registered Office */}
+          <div className="md:border-l md:border-white/10 md:pl-12 lg:pl-16 flex flex-col justify-center">
+            <h4 className="text-white font-bold text-xs mb-4 uppercase tracking-wider">Registered Office</h4>
+            <p className="text-slate-300 text-sm font-medium mb-1.5">DIGITYZE INTERNATIONAL (OPC) PRIVATE LIMITED</p>
+            <p className="text-slate-400 text-xs mb-4 tracking-wide">CIN: U62020WB2026OPC288605</p>
+            <div className="text-slate-400 text-sm leading-relaxed max-w-sm flex items-center gap-4">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <span>
+                83, S.P. Mukherjee Road, Kalighat<br/>
+                Kolkata - 700026, West Bengal, India
+              </span>
             </div>
           </div>
         </div>
@@ -151,7 +200,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-400 text-xs">
-              © {new Date().getFullYear()} Digityze International™. All rights reserved.
+              © {new Date().getFullYear()} DIGITYZE INTERNATIONAL (OPC) PRIVATE LIMITED. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <a href="#" className="text-slate-400 text-xs hover:text-white transition-colors">
