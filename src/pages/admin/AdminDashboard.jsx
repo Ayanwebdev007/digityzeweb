@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { collection, query, orderBy, onSnapshot, deleteDoc, doc } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
-import { db, auth } from '../../config/firebase';
+import { ref, deleteObject } from 'firebase/storage';
+import { db, auth, storage } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
@@ -25,9 +26,24 @@ export default function AdminDashboard() {
   }, []);
 
   const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this post?')) {
+    if (window.confirm('Are you sure you want to delete this post? This will also delete its image.')) {
       try {
+        // Find the post to get the image URL
+        const postToDelete = posts.find(p => p.id === id);
+        
+        // Delete document from Firestore
         await deleteDoc(doc(db, 'insights', id));
+        
+        // Delete image from Storage if it exists
+        if (postToDelete?.image) {
+          try {
+            const imageRef = ref(storage, postToDelete.image);
+            await deleteObject(imageRef);
+          } catch (storageError) {
+            console.error("Error deleting image from storage: ", storageError);
+            // Don't alert here, the post is already deleted, just log it.
+          }
+        }
       } catch (error) {
         console.error("Error deleting document: ", error);
         alert("Failed to delete post.");
