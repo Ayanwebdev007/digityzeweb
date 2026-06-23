@@ -116,8 +116,7 @@ export default function InsightDetail() {
       </section>
 
       {/* Content Section */}
-      <section className="relative -mt-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal delay={300}>
+      <section className="relative -mt-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
           <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 border border-slate-200">
             {post.image && (
               <div className="mb-12 rounded-2xl overflow-hidden border border-slate-200">
@@ -136,8 +135,8 @@ export default function InsightDetail() {
                          prose-ul:text-slate-600 prose-ol:text-slate-600 prose-li:font-medium prose-li:text-[17px] prose-li:marker:text-brand-accent
                          prose-blockquote:border-l-brand-accent prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:font-semibold prose-blockquote:text-slate-700
                          prose-strong:text-slate-900 prose-strong:font-bold
-                         break-words overflow-hidden"
-              style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}
+                         break-words"
+              style={{ overflowWrap: 'anywhere' }}
               dangerouslySetInnerHTML={{ __html: post.content }} 
             />
             
@@ -150,7 +149,6 @@ export default function InsightDetail() {
               </Link>
             </div>
           </div>
-        </ScrollReveal>
       </section>
     </main>
   );
