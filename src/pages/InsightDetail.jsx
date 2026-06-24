@@ -105,8 +105,6 @@ export default function InsightDetail() {
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
                 {post.title}
               </h1>
-              {/* Invisible H2 for accessibility hierarchy (bridges H1 to H3s) */}
-              <h2 className="sr-only">Article Content</h2>
             </ScrollReveal>
             {post.createdAt && (
               <ScrollReveal delay={200}>
@@ -134,6 +132,8 @@ export default function InsightDetail() {
               </div>
             )}
             
+            {/* Invisible H2 to bridge hierarchy before article H3s */}
+            <h2 className="sr-only">Article Sections</h2>
             {/* Premium Typography Renderer */}
             <article 
               className="prose prose-base prose-slate max-w-none font-sans
