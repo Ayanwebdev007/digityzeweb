@@ -49,6 +49,8 @@ export default function Navbar() {
                 src="/digityze logo 01.png"
                 alt="Digityze International"
                 className="h-10 sm:h-12 lg:h-14 w-auto transition-all"
+                width={206}
+                height={70}
               />
             </Link>
 

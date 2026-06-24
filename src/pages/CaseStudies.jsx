@@ -1,4 +1,5 @@
 import SEO from '../components/common/SEO';
+import OptimizedImage from '../components/common/OptimizedImage';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
 import { caseStudies } from '../data/content';
@@ -11,10 +12,14 @@ export default function CaseStudies() {
       <section className="relative h-[500px] lg:h-[700px] flex flex-col justify-center pt-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}
         <div className="absolute inset-0">
-          <img 
+          <OptimizedImage 
             src="/images/casestudies_hero.png" 
             alt="Transformation Frameworks" 
             className="w-full h-full object-cover opacity-50 object-center"
+            width={1024}
+            height={1024}
+            loading="eager"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-darker/50 via-brand-primary/80 to-brand-primary" />
         </div>

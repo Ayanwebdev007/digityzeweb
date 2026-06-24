@@ -35,6 +35,8 @@ export default function Footer() {
                 src="/digityze logo 01.png"
                 alt="Digityze International"
                 className="h-12 lg:h-14 w-auto brightness-0 invert"
+                width={206}
+                height={70}
               />
             </Link>
             <p className="text-slate-300/80 text-sm leading-relaxed mb-6 max-w-sm">
@@ -86,7 +88,7 @@ export default function Footer() {
 
           {/* Company Links */}
           <div className="lg:col-span-2 lg:col-start-5">
-            <h4 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Company</h4>
+            <h3 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -103,7 +105,7 @@ export default function Footer() {
 
           {/* Services Links */}
           <div className="lg:col-span-3">
-            <h4 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Services</h4>
+            <h3 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
@@ -120,7 +122,7 @@ export default function Footer() {
 
           {/* Resources Links */}
           <div className="lg:col-span-3">
-            <h4 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Resources</h4>
+            <h3 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Resources</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
@@ -141,7 +143,7 @@ export default function Footer() {
         <div className="mt-16 pt-12 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8">
           {/* Contact Us */}
           <div>
-            <h4 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Contact Us</h4>
+            <h3 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Contact Us</h3>
             <div className="space-y-5 text-sm text-slate-300">
               <p>
                 <a href="mailto:digityzeinternational@gmail.com" className="hover:text-white transition-colors inline-flex items-center gap-4">
@@ -176,7 +178,7 @@ export default function Footer() {
 
           {/* Registered Office */}
           <div className="md:border-l md:border-white/10 md:pl-12 lg:pl-16 flex flex-col justify-center">
-            <h4 className="text-white font-bold text-xs mb-4 uppercase tracking-wider">Registered Office</h4>
+            <h3 className="text-white font-bold text-xs mb-4 uppercase tracking-wider">Registered Office</h3>
             <p className="text-slate-300 text-sm font-medium mb-1.5">DIGITYZE INTERNATIONAL (OPC) PRIVATE LIMITED</p>
             <p className="text-slate-400 text-xs mb-4 tracking-wide">CIN: U62020WB2026OPC288605</p>
             <div className="text-slate-400 text-sm leading-relaxed max-w-sm flex items-center gap-4">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, limit } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import OptimizedImage from '../components/common/OptimizedImage';
 import SEO from '../components/common/SEO';
 import ScrollReveal from '../components/common/ScrollReveal';
 import 'react-quill-new/dist/quill.snow.css';
@@ -120,7 +121,14 @@ export default function InsightDetail() {
           <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 border border-slate-200">
             {post.image && (
               <div className="mb-12 rounded-2xl overflow-hidden border border-slate-200">
-                <img src={post.image} alt={post.title} className="w-full h-auto object-cover max-h-[500px]" />
+                <OptimizedImage 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="w-full h-auto object-cover max-h-[500px]" 
+                  loading="eager"
+                  width={1024}
+                  height={500}
+                />
               </div>
             )}
             

@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQDKDDGWZH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-CQDKDDGWZH');
-    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/digityze logo white.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,10 +13,34 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Digityze International™ — Global Digital Transformation & Technology Consulting" />
     <meta name="twitter:description" content="We partner with organizations worldwide to modernize operations, unlock scalable growth, and build digital-first systems." />
+
+    <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://apis.google.com" />
+
+    <!-- Preload LCP hero image for fastest paint -->
+    <link rel="preload" as="image" type="image/webp" href="/images/optimized/team_collaboration-1024w.webp" fetchpriority="high" />
+
+    <!-- Defer Google Tag Manager — loads 3s after page load to keep critical path clean -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CQDKDDGWZH';
+          document.head.appendChild(s);
+          s.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CQDKDDGWZH');
+          };
+        }, 3000);
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+

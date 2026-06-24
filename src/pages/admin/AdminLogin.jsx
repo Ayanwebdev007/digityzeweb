@@ -39,7 +39,7 @@ export default function AdminLogin() {
         
         <div className="max-w-md w-full space-y-8 bg-white/10 backdrop-blur-2xl p-10 md:p-12 rounded-[32px] border border-white/20 relative z-10">
           <div>
-            <img src="/digityze logo 01.png" alt="Digityze Logo" className="mx-auto h-14 w-auto brightness-0 invert opacity-90" />
+            <img src="/digityze logo 01.png" alt="Digityze Logo" className="mx-auto h-14 w-auto brightness-0 invert opacity-90" width={206} height={70} />
             <h2 className="mt-8 text-center text-3xl font-black text-white uppercase tracking-widest">
               Admin Portal
             </h2>

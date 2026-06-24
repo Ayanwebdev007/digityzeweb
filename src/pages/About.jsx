@@ -1,4 +1,5 @@
 import SEO from '../components/common/SEO';
+import OptimizedImage from '../components/common/OptimizedImage';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
 import SectionHeader from '../components/common/SectionHeader';
@@ -12,10 +13,14 @@ export default function About() {
       <section className="relative min-h-screen sm:min-h-0 sm:h-[500px] lg:h-[700px] flex flex-col justify-center pt-28 pb-16 sm:py-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}
         <div className="absolute inset-0">
-          <img 
+          <OptimizedImage 
             src="/images/corporate_office_hero.png" 
             alt="Corporate Office" 
             className="w-full h-full object-cover opacity-50 object-center"
+            width={1024}
+            height={1024}
+            loading="eager"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-darker/50 via-brand-primary/80 to-brand-primary" />
         </div>
@@ -132,10 +137,13 @@ export default function About() {
             <div className="relative">
               <ScrollReveal>
                 <div className="relative rounded-[40px] overflow-hidden aspect-[4/5] sm:aspect-square lg:aspect-[4/5] shadow-2xl">
-                  <img
+                  <OptimizedImage
                     src="/images/happy_client.png"
                     alt="Client Success"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    width={864}
+                    height={1024}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-transparent to-transparent" />
                   

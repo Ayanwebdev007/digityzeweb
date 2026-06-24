@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Link } from 'react-router-dom';
+import OptimizedImage from '../components/common/OptimizedImage';
 import SEO from '../components/common/SEO';
 import ScrollReveal from '../components/common/ScrollReveal';
 
@@ -37,10 +38,14 @@ export default function Insights() {
       <section className="relative h-[500px] lg:h-[700px] flex flex-col justify-center pt-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}
         <div className="absolute inset-0">
-          <img 
+          <OptimizedImage 
             src="/images/insights_hero.png" 
-            alt="Data and Perspectives" 
+            alt="Business Insights" 
             className="w-full h-full object-cover opacity-50 object-center"
+            width={1024}
+            height={1024}
+            loading="eager"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-darker/50 via-brand-primary/80 to-brand-primary" />
         </div>
@@ -132,11 +137,13 @@ export default function Insights() {
                     {/* Top Side: Image */}
                     <div className="h-48 relative overflow-hidden bg-slate-50 border-b border-slate-100 shrink-0">
                       {insight.image ? (
-                        <img 
+                        <OptimizedImage 
                           src={insight.image} 
                           alt={insight.title} 
+                          className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                           loading="lazy"
-                          className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+                          width={600}
+                          height={400}
                         />
                       ) : (
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">

@@ -1,5 +1,5 @@
 import SEO from '../components/common/SEO';
-// forced compile test
+import OptimizedImage from '../components/common/OptimizedImage';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/common/ScrollReveal';
@@ -62,10 +62,15 @@ function Hero() {
             }`}
           >
             {/* Background Image of Happy Customers */}
-            <img
+            <OptimizedImage
               src={slide.image}
               alt={slide.title}
               className="w-full h-full object-cover object-center"
+              width={1024}
+              height={576}
+              loading={idx === 0 ? 'eager' : 'lazy'}
+              fetchPriority={idx === 0 ? 'high' : undefined}
+              sizes="100vw"
             />
             {/* Rich gradient overlay for high text legibility */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/50 to-transparent max-sm:bg-gradient-to-t max-sm:from-slate-900/95 max-sm:via-slate-900/60 max-sm:to-transparent" />
@@ -116,11 +121,13 @@ function Hero() {
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                idx === currentSlide ? 'bg-white w-6' : 'bg-white/40 hover:bg-white/60'
+              className={`rounded-full transition-all duration-300 flex items-center justify-center ${
+                idx === currentSlide ? 'w-8 h-8 bg-white/20' : 'w-8 h-8 bg-transparent hover:bg-white/10'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
-            />
+            >
+              <span className={`block rounded-full transition-all duration-300 ${idx === currentSlide ? 'w-3 h-3 bg-white' : 'w-2.5 h-2.5 bg-white/40'}`} />
+            </button>
           ))}
         </div>
       </div>
@@ -154,10 +161,13 @@ function Hero() {
               
               {/* Left Side: Full-Bleed Portrait */}
               <div className="w-full md:w-5/12 h-64 md:h-auto relative flex-shrink-0 overflow-hidden bg-slate-50 border-r border-navy-100/60">
-                <img 
+                <OptimizedImage 
                   src="/images/customer_marketing.png" 
                   alt="Anita Sen"
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  width={1024}
+                  height={695}
+                  sizes="(max-width: 1024px) 100vw, 660px"
                 />
                 {/* Status Indicator */}
                 <span className="absolute bottom-4 right-4 flex h-3.5 w-3.5 z-20">
@@ -181,7 +191,7 @@ function Hero() {
 
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-slate-800 font-extrabold text-base">Anita Sen</h4>
+                      <h3 className="text-slate-800 font-extrabold text-base">Anita Sen</h3>
                       <p className="text-slate-500 text-xs font-semibold">Founder, Sen E-Commerce</p>
                     </div>
                     <p className="text-slate-600 text-sm font-medium leading-relaxed">
@@ -209,10 +219,13 @@ function Hero() {
 
               {/* Top Full-Bleed Image */}
               <div className="relative h-60 w-full overflow-hidden bg-slate-50 border-b border-navy-100/60 flex-shrink-0">
-                <img 
+                <OptimizedImage 
                   src="/images/customer_software.png" 
                   alt="Rajesh Kumar"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  width={884}
+                  height={1024}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
                 {/* Status Indicator */}
                 <span className="absolute bottom-3 right-3 flex h-3 w-3 z-20">
@@ -236,7 +249,7 @@ function Hero() {
 
                   <div className="space-y-3">
                     <div>
-                      <h4 className="text-slate-800 font-extrabold text-base">Rajesh Kumar</h4>
+                      <h3 className="text-slate-800 font-extrabold text-base">Rajesh Kumar</h3>
                       <p className="text-slate-500 text-xs font-semibold">Owner, Kumar Retail Chains</p>
                     </div>
                     <p className="text-slate-600 text-sm font-medium leading-relaxed">
@@ -277,7 +290,7 @@ function Hero() {
 
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-slate-800 font-extrabold text-base">Dr. Anjali Mehta</h4>
+                      <h3 className="text-slate-800 font-extrabold text-base">Dr. Anjali Mehta</h3>
                       <p className="text-slate-500 text-xs font-semibold">Director, Mehta Clinics</p>
                     </div>
                     <p className="text-slate-600 text-sm font-medium leading-relaxed">
@@ -296,10 +309,13 @@ function Hero() {
 
               {/* Right Side: Full-Bleed Portrait */}
               <div className="w-full md:w-4/12 h-64 md:h-auto relative flex-shrink-0 order-1 md:order-2 overflow-hidden bg-slate-50 border-l border-navy-100/60">
-                <img 
+                <OptimizedImage 
                   src="/images/customer_saas.png" 
                   alt="Dr. Anjali Mehta"
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  width={1024}
+                  height={695}
+                  sizes="(max-width: 1024px) 100vw, 660px"
                 />
                 {/* Status Indicator */}
                 <span className="absolute bottom-3 right-3 flex h-3.5 w-3.5 z-20">
@@ -429,11 +445,14 @@ function GlobalReach() {
       <div className="max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 -mt-8 md:-mt-16">
         <ScrollReveal>
           <div className="relative flex items-center justify-center overflow-visible">
-            <img
+            <OptimizedImage
               src="/images/world_map_highlighted.png"
               alt="World map highlighting India, United States, United Arab Emirates, United Kingdom, and Singapore"
               className="w-full h-auto max-h-[850px] object-contain select-none hover:scale-[1.02] transition-transform duration-700 ease-out"
-              draggable="false"
+              width={1024}
+              height={1024}
+              draggable={false}
+              sizes="(max-width: 768px) 100vw, 90vw"
             />
           </div>
         </ScrollReveal>
@@ -456,7 +475,7 @@ function GlobalReach() {
                     {country.flag}
                   </div>
                   <div className="text-left">
-                    <h4 className="text-slate-800 font-extrabold text-sm leading-none">{country.name}</h4>
+                    <h3 className="text-slate-800 font-extrabold text-sm leading-none">{country.name}</h3>
                     <p className="text-slate-400 text-[10px] font-bold tracking-wider uppercase mt-1">{country.hub}</p>
                   </div>
                 </div>
@@ -547,10 +566,13 @@ function MainServices() {
               <div className={`relative ${item.height} rounded-[36px] overflow-hidden group border border-navy-100 bg-navy-50 hover:border-brand-accent/30 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)]`}>
                 
                 {/* Background Image of happy Indian users/clients */}
-                <img
+                <OptimizedImage
                   src={item.image}
                   alt={item.title}
                   className={`absolute inset-0 w-full h-full object-cover ${item.position || 'object-center'} transition-all duration-700 ease-out group-hover:scale-[1.025] brightness-[0.7] group-hover:brightness-[0.8]`}
+                  width={1024}
+                  height={1024}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 60vw"
                 />
                 
                 {/* Rich Gradient Overlay for high text contrast */}
@@ -820,11 +842,14 @@ function IndustriesBenefit() {
                     {/* Sector Cover Image (Mock inset frame) */}
                     <div className="w-full lg:w-1/2 flex-shrink-0 flex items-center justify-center p-2.5 bg-slate-50 border border-slate-100/80 rounded-[32px]">
                       <div className="w-full h-44 sm:h-80 lg:h-full rounded-[24px] overflow-hidden relative">
-                        <img 
+                        <OptimizedImage 
                           src={sector.image} 
                           alt={sector.title} 
                           className="w-full h-full object-cover brightness-100 hover:scale-[1.02] transition-transform duration-700 ease-out"
-                          draggable="false"
+                          width={1024}
+                          height={570}
+                          draggable={false}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                       </div>
                     </div>
@@ -837,7 +862,7 @@ function IndustriesBenefit() {
                         <span className="text-[9px] sm:text-[11px] font-bold text-brand-accent uppercase tracking-widest bg-brand-accent/10 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-brand-accent/15">
                           {sector.category}
                         </span>
-                        <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-400">
+                        <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-600">
                           {String((idx % 8) + 1).padStart(2, '0')} / 08
                         </span>
                       </div>
@@ -907,7 +932,7 @@ function IndustriesBenefit() {
 
                       {/* Growth Footer */}
                       <div className="pt-4 sm:pt-6 border-t border-slate-100 flex items-center justify-between bg-white rounded-b-3xl">
-                        <span className="text-[11px] sm:text-sm font-bold text-slate-400">Verified Growth</span>
+                        <span className="text-[11px] sm:text-sm font-bold text-slate-600">Verified Growth</span>
                         <div className="flex items-center gap-1.5 sm:gap-2.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl bg-brand-accent/10 text-brand-accent border border-brand-accent/20 shadow-sm">
                           <svg className="w-3 h-3 sm:w-4 sm:h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -943,13 +968,15 @@ function IndustriesBenefit() {
                   if (!isTransitioning) return;
                   setCurrentIndex(8 + idx);
                 }}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-all duration-300 rounded-full flex items-center justify-center w-8 h-8 ${
                   realIndex === idx 
-                    ? 'w-6 h-2 bg-brand-primary' 
-                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400 cursor-pointer'
+                    ? 'bg-brand-primary/10' 
+                    : 'bg-transparent hover:bg-slate-100 cursor-pointer'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
-              />
+              >
+                <span className={`block rounded-full transition-all duration-300 ${realIndex === idx ? 'w-5 h-2 bg-brand-primary' : 'w-2 h-2 bg-slate-300'}`} />
+              </button>
             ))}
           </div>
 
@@ -1021,10 +1048,13 @@ function CustomerReviews() {
             <ScrollReveal key={idx} delay={idx * 120}>
               <div className="relative rounded-[24px] overflow-hidden h-[480px] group cursor-default">
                 {/* Full-bleed person image */}
-                <img 
+                <OptimizedImage 
                   src={rev.image} 
                   alt={rev.author} 
-                  className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
+                  className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  width={811}
+                  height={1024}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
 
                 {/* Subtle gradient only at bottom */}
@@ -1043,7 +1073,7 @@ function CustomerReviews() {
                   <p className="text-white/90 text-sm leading-relaxed mb-4">
                     "{rev.quote}"
                   </p>
-                  <h4 className="text-white font-bold text-lg">{rev.author}</h4>
+                  <h3 className="text-white font-bold text-lg">{rev.author}</h3>
                   <p className="text-blue-200 text-xs font-semibold tracking-wide uppercase mt-1">{rev.title}</p>
                 </div>
               </div>
@@ -1072,10 +1102,13 @@ function CTASection() {
               {/* Breaking Out Cutout Image (Hidden on mobile, Desktop right) */}
               <div className="w-full md:w-5/12 hidden md:flex justify-center md:justify-end z-20 order-1 md:order-2 md:absolute md:bottom-0 md:-right-4 lg:right-4 xl:right-12 pointer-events-none">
                 <div className="w-64 sm:w-96 md:w-[450px] lg:w-[550px] xl:w-[600px] h-auto -mt-32 sm:-mt-48 md:mt-0 relative flex items-end">
-                  <img
+                  <OptimizedImage
                     src="/images/business_professional_cutout.png"
                     alt="Business Automation Expert"
                     className="w-full h-auto object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] pointer-events-auto scale-110 sm:scale-[1.25] md:scale-[1.35] lg:scale-[1.45] origin-bottom transition-transform duration-500 md:hover:scale-[1.38] lg:hover:scale-[1.48]"
+                    width={600}
+                    height={800}
+                    sizes="(max-width: 768px) 256px, (max-width: 1024px) 450px, 600px"
                   />
                 </div>
               </div>
