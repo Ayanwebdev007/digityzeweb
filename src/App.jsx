@@ -15,6 +15,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Platforms = lazy(() => import('./pages/Platforms'));
 const Careers = lazy(() => import('./pages/Careers'));
+const EliteAgency = lazy(() => import('./pages/EliteAgency'));
 
 // Admin routes — Firebase + react-quill-new only load when visiting /admin/*
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
@@ -69,6 +70,7 @@ export default function App() {
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/platforms" element={<Platforms />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/elite-digital-agency" element={<EliteAgency />} />
 
               {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
