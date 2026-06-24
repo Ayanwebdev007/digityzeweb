@@ -67,8 +67,43 @@ export default function BlogEditor() {
     if (!file) return;
 
     setUploadingImage(true);
-    const storageRef = ref(storage, `blog_images/${Date.now()}_${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    
+    // Client-side image compression to WebP
+    const compressedFile = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          
+          // Max width/height to 1200px
+          const MAX_SIZE = 1200;
+          if (width > height && width > MAX_SIZE) {
+            height *= MAX_SIZE / width;
+            width = MAX_SIZE;
+          } else if (height > MAX_SIZE) {
+            width *= MAX_SIZE / height;
+            height = MAX_SIZE;
+          }
+          
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          
+          canvas.toBlob((blob) => {
+            resolve(new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".webp", { type: 'image/webp' }));
+          }, 'image/webp', 0.85); // 85% quality WebP
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    const storageRef = ref(storage, `blog_images/${Date.now()}_${compressedFile.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, compressedFile);
 
     uploadTask.on('state_changed', 
       (snapshot) => {}, 
