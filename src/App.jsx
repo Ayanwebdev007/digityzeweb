@@ -14,6 +14,7 @@ const InsightDetail = lazy(() => import('./pages/InsightDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Platforms = lazy(() => import('./pages/Platforms'));
+const CallEasy = lazy(() => import('./pages/CallEasy'));
 const Careers = lazy(() => import('./pages/Careers'));
 const EliteAgency = lazy(() => import('./pages/EliteAgency'));
 
@@ -69,6 +70,7 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/platforms" element={<Platforms />} />
+              <Route path="/calleasy" element={<CallEasy />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/elite-digital-agency" element={<EliteAgency />} />
 

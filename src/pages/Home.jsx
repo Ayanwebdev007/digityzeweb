@@ -332,6 +332,128 @@ function Hero() {
   );
 }
 
+// ─── CallEasy Section (Premium App Showcase) ───
+function DigityzeCalling() {
+  return (
+    <section id="calleasy-crm" className="py-12 sm:py-16 bg-gradient-to-r from-[#001a33] via-[#003d7a] to-[#001a33] bg-[length:200%_200%] animate-[gradient-shift_8s_ease_infinite] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* The Premium Showcase Box */}
+        <div className="relative rounded-[40px] overflow-hidden px-6 sm:px-12 lg:px-16 pt-12 sm:pt-16 group">
+          
+          {/* Background layer to prevent backdrop-blur clipping bugs */}
+          <div className="absolute inset-0 rounded-[40px] bg-[#0a0a0a] border border-[#1f1f1f] shadow-[0_0_50px_rgba(0,0,0,0.8)] -z-10" />
+
+          {/* Watermark Logo in Background */}
+          <div className="absolute -bottom-40 -left-20 pointer-events-none z-0 opacity-[0.02]">
+            <img src="/images/callEasy logo icon.png" alt="" className="w-[600px] lg:w-[800px] h-auto object-contain brightness-0 invert" />
+          </div>
+          
+          {/* Glowing Orbs inside the card */}
+          <div className="absolute top-0 left-0 w-[800px] h-[400px] bg-lime-500/10 rounded-full blur-[100px] pointer-events-none transition-opacity duration-700 group-hover:opacity-70 opacity-40" />
+          <div className="absolute bottom-0 right-0 w-[600px] h-[500px] bg-green-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 relative z-10">
+            
+            {/* Left Column: Copy & CTA */}
+            <div className="lg:col-span-7 text-left pb-12 lg:pb-16 flex flex-col justify-center h-full">
+              <ScrollReveal>
+                <div className="mb-0 flex justify-start -mt-2 lg:-mt-6">
+                  <img src="/images/callEasy logo.png" alt="CallEasy Logo" className="h-14 sm:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(163,230,53,0.3)] -ml-2 lg:-ml-4" />
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={100}>
+                <h2 className="font-black text-white leading-[1.1] tracking-tight mb-8">
+                  <span className="block text-xl sm:text-2xl font-bold text-zinc-300 tracking-normal mb-2">India's most needed</span>
+                  <span className="block text-3xl sm:text-4xl lg:text-4xl xl:text-5xl whitespace-nowrap">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-500 drop-shadow-[0_0_30px_rgba(163,230,53,0.2)]">Calling Partner</span> for MSMEs
+                  </span>
+                </h2>
+              </ScrollReveal>
+
+              <ScrollReveal delay={200}>
+                <div className="flex flex-col items-start gap-4 mb-10">
+                  <p className="text-zinc-500 text-xs sm:text-sm font-bold uppercase tracking-widest">Seamlessly Integrated With</p>
+                  <div className="flex flex-wrap items-center gap-6 sm:gap-8 bg-[#111111]/80 backdrop-blur-md py-3 px-6 rounded-2xl border border-[#222]">
+                    <img src="https://cdn.simpleicons.org/meta/0668E1" alt="Meta" className="h-4 sm:h-5 hover:scale-110 transition-transform duration-300" />
+                    <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google" className="h-5 sm:h-6 hover:scale-110 transition-transform duration-300" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-6 sm:h-7 hover:scale-110 transition-transform duration-300" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" className="h-4 sm:h-5 hover:scale-110 transition-transform duration-300" />
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={300}>
+                <Link
+                  to="/calleasy"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-lime-400 to-green-500 text-black font-extrabold text-lg rounded-full hover:from-lime-300 hover:to-green-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(163,230,53,0.5)] group/btn"
+                >
+                  Get CallEasy Now
+                  <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </ScrollReveal>
+
+            </div>
+
+            {/* Right Column: UI Mockup */}
+            <div className="lg:col-span-5 relative w-full h-full flex items-end justify-center lg:justify-start lg:pt-16">
+              <ScrollReveal delay={400} className="relative shrink-0 w-[110%] sm:w-[120%] lg:w-[600px] lg:max-w-none lg:-ml-10 mt-8 lg:mt-16">
+                
+                {/* Floating Feature Cards */}
+                <div className="hidden xl:flex absolute left-6 -top-24 z-20 flex-row gap-6">
+                  {/* Card 1 */}
+                  <div className="animate-[bounce_6s_infinite] bg-[#111111]/90 backdrop-blur-xl border border-lime-500/20 p-4 rounded-2xl shadow-[0_0_30px_rgba(163,230,53,0.15)] flex items-center gap-4">
+                    <div className="flex items-center gap-2.5">
+                        <img src="https://cdn.simpleicons.org/meta/0668E1" className="w-5 h-5 object-contain" alt="Meta" />
+                        <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" className="w-5 h-5 object-contain" alt="Google" />
+                    </div>
+                    <div className="text-left border-l border-zinc-700 pl-3">
+                      <p className="text-white font-bold text-sm">Direct Lead Sync</p>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="animate-[bounce_7s_infinite] bg-[#111111]/90 backdrop-blur-xl border border-green-500/20 p-4 rounded-2xl shadow-[0_0_30px_rgba(34,197,94,0.15)] flex items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-6 h-6 object-contain ml-1" alt="WhatsApp" />
+                    <div className="text-left border-l border-zinc-700 pl-3">
+                      <p className="text-white font-bold text-sm">Native WhatsApp</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mockup Image */}
+                <div className="relative rounded-t-3xl overflow-hidden border-t border-x border-[#222222] shadow-[0_0_80px_rgba(163,230,53,0.15)] bg-[#0a0a0a] translate-y-0 group-hover:-translate-y-4 transition-transform duration-1000 ease-out flex justify-center">
+                  <img
+                    src="/images/callEasy ui.png"
+                    alt="CallEasy CRM Dashboard"
+                    className="w-full h-auto object-cover scale-[1.05] rounded-t-2xl drop-shadow-2xl transform origin-top"
+                  />
+                  {/* Subtle Gradient overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
+                </div>
+
+              </ScrollReveal>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Powered by Signature below the card */}
+        <ScrollReveal delay={500}>
+          <div className="mt-12 flex justify-center items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity duration-300">
+            <span className="text-zinc-300 text-sm font-light font-sans mr-1">by</span>
+            <img src="/digityze logo white.png" alt="Digityze Logo" className="h-5 sm:h-6 w-auto object-contain drop-shadow-md -mr-1" />
+            <span className="text-white font-light text-sm tracking-wide font-sans">Digityze International™</span>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
 // ─── Global Reach / Country Scale ───
 function GlobalReach() {
   const countries = [
@@ -1154,6 +1276,7 @@ export default function Home() {
     <main>
       <SEO title="" description="Digityze International is a global technology and business transformation company helping organizations modernize and scale operations worldwide." url="/" />
       <Hero />
+      <DigityzeCalling />
       <GlobalReach />
       <MainServices />
       <IndustriesBenefit />
