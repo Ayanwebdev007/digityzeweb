@@ -366,7 +366,7 @@ function DigityzeCalling() {
               <ScrollReveal delay={100}>
                 <h2 className="font-black text-white leading-[1.1] tracking-tight mb-8">
                   <span className="block text-xl sm:text-2xl font-bold text-zinc-300 tracking-normal mb-2">India's most needed</span>
-                  <span className="block text-3xl sm:text-4xl lg:text-4xl xl:text-5xl whitespace-nowrap">
+                  <span className="block text-3xl sm:text-4xl lg:text-4xl xl:text-5xl">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-500 drop-shadow-[0_0_30px_rgba(163,230,53,0.2)]">Calling Partner</span> for MSMEs
                   </span>
                 </h2>
@@ -399,11 +399,11 @@ function DigityzeCalling() {
             </div>
 
             {/* Right Column: UI Mockup */}
-            <div className="lg:col-span-5 relative w-full h-full flex items-end justify-center lg:justify-start lg:pt-16">
-              <ScrollReveal delay={400} className="relative shrink-0 w-[110%] sm:w-[120%] lg:w-[600px] lg:max-w-none lg:-ml-10 mt-8 lg:mt-16">
+            <div className="lg:col-span-5 relative w-full h-full flex flex-col items-center lg:items-start justify-end pt-8 lg:pt-16 overflow-hidden lg:overflow-visible">
+              <ScrollReveal delay={400} className="relative w-full max-w-[500px] lg:w-[600px] lg:max-w-none lg:-ml-10 mx-auto">
                 
                 {/* Floating Feature Cards */}
-                <div className="hidden xl:flex absolute left-6 -top-24 z-20 flex-row gap-6">
+                <div className="hidden md:flex absolute lg:left-6 -top-16 lg:-top-24 z-20 flex-row gap-4 lg:gap-6 scale-75 lg:scale-100 origin-bottom">
                   {/* Card 1 */}
                   <div className="animate-[bounce_6s_infinite] bg-[#111111]/90 backdrop-blur-xl border border-lime-500/20 p-4 rounded-2xl shadow-[0_0_30px_rgba(163,230,53,0.15)] flex items-center gap-4">
                     <div className="flex items-center gap-2.5">
@@ -425,11 +425,11 @@ function DigityzeCalling() {
                 </div>
 
                 {/* Mockup Image */}
-                <div className="relative rounded-t-3xl overflow-hidden border-t border-x border-[#222222] shadow-[0_0_80px_rgba(163,230,53,0.15)] bg-[#0a0a0a] translate-y-0 group-hover:-translate-y-4 transition-transform duration-1000 ease-out flex justify-center">
+                <div className="relative rounded-t-3xl border-t border-x border-[#222222] shadow-[0_0_80px_rgba(163,230,53,0.15)] bg-[#0a0a0a] translate-y-0 group-hover:-translate-y-4 transition-transform duration-1000 ease-out flex justify-center w-full mt-auto">
                   <img
                     src="/images/callEasy ui.png"
                     alt="CallEasy CRM Dashboard"
-                    className="w-full h-auto object-cover scale-[1.05] rounded-t-2xl drop-shadow-2xl transform origin-top"
+                    className="w-full h-auto object-cover scale-[1.02] rounded-t-2xl drop-shadow-2xl transform origin-bottom"
                   />
                   {/* Subtle Gradient overlay */}
                   <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />

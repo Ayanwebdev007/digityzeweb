@@ -1,19 +1,13 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@import url('https://api.fontshare.com/v2/css?f%5B%5D=general-sans@200,300,400,500,600,700,800,900&display=swap');
+
 /* ============================================
    DIGITYZE INTERNATIONAL — Design System
    General Sans + Navy/Blue Brand Palette (Light Theme)
    Tailwind CSS v4 Theme Configuration
    ============================================ */
-
-@font-face {
-  font-family: 'General Sans';
-  src: url('https://cdn.fontshare.com/wf/HUZA5NFHKXD2PSFTIQZWUWFWRQ3HCMZP/RUJ5YL7KXFXZNKCLHIXAFHOQZRDBBFVG/RMUJJ2OQHPN3FJ5GGISQR3HFY6BW273H.woff2') format('woff2');
-  font-weight: 200 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 @theme {
   /* Brand Colors — Navy/Blue Palette */
