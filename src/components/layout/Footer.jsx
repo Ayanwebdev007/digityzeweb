@@ -145,7 +145,7 @@ export default function Footer() {
           <div>
             <h2 className="text-white font-bold text-xs mb-5 uppercase tracking-wider">Contact Us</h2>
             <div className="space-y-5 text-sm text-slate-300">
-              <p>
+              <div>
                 <a href="mailto:digityzeinternational@gmail.com" className="hover:text-white transition-colors inline-flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -154,7 +154,7 @@ export default function Footer() {
                   </div>
                   <span className="text-base">digityzeinternational@gmail.com</span>
                 </a>
-              </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <a href="tel:+916290840416" className="hover:text-white transition-colors inline-flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">

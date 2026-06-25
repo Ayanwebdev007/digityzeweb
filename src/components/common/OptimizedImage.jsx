@@ -42,7 +42,7 @@ export default function OptimizedImage({
         width={width}
         height={height}
         loading={loading}
-        fetchpriority={fetchPriority}
+        fetchPriority={fetchPriority}
         draggable={draggable}
         {...rest}
       />
@@ -67,7 +67,7 @@ export default function OptimizedImage({
         width={width}
         height={height}
         loading={loading}
-        fetchpriority={fetchPriority}
+        fetchPriority={fetchPriority}
         draggable={draggable}
         {...rest}
       />
@@ -88,7 +88,7 @@ export default function OptimizedImage({
         width={width}
         height={height}
         loading={loading}
-        fetchpriority={fetchPriority}
+        fetchPriority={fetchPriority}
         draggable={draggable}
         onError={() => setUseFallback(true)}
         {...rest}
