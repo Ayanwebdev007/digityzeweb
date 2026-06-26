@@ -37,7 +37,7 @@ export default function CallEasy() {
               </ScrollReveal>
 
               <ScrollReveal delay={100}>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.05] tracking-tight mb-8 font-sans">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.05] tracking-tight mb-8 font-sans">
                   Stop Leaking Leads. <br className="hidden sm:block"/>
                   Start <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-100 to-green-500 animate-[gradient-shift_5s_ease_infinite] bg-[length:200%_auto]">Closing.</span>
                 </h1>
@@ -69,35 +69,35 @@ export default function CallEasy() {
             </div>
 
             {/* Right: Floating UIs & Mockup (Unconventional Layout) */}
-            <div className="lg:col-span-6 relative z-10 h-[500px] lg:h-[700px] w-full flex items-center justify-center lg:justify-end">
+            <div className="lg:col-span-6 relative z-10 h-[400px] sm:h-[500px] lg:h-[700px] w-full flex items-center justify-center lg:justify-end overflow-hidden sm:overflow-visible">
               <ScrollReveal delay={400} className="w-full relative h-full">
                 
                 {/* Main Dashboard Panel - Rotated and scaled for depth */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[120%] sm:w-[100%] max-w-[800px] rounded-3xl overflow-hidden border border-[#222] shadow-[0_0_100px_rgba(0,0,0,0.8)] bg-[#0a0a0a] transform rotate-[-2deg] hover:rotate-0 transition-transform duration-1000 ease-out z-10">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full sm:w-[100%] max-w-[800px] rounded-3xl overflow-hidden border border-[#222] shadow-[0_0_100px_rgba(0,0,0,0.8)] bg-[#0a0a0a] transform rotate-[-2deg] hover:rotate-0 transition-transform duration-1000 ease-out z-10">
                   <img src="/images/callEasy ui.png" alt="CallEasy Dashboard" className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Floating UI 1: Incoming Lead Toast */}
-                <div className="absolute -left-4 top-1/4 z-30 bg-[#111111]/90 backdrop-blur-xl border border-lime-500/30 p-4 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex items-center gap-4 animate-[float_5s_ease-in-out_infinite] transform -rotate-2">
-                  <div className="w-12 h-12 rounded-full bg-lime-500/20 flex items-center justify-center border border-lime-500/50">
-                    <img src="https://cdn.simpleicons.org/meta/0668E1" className="w-6 h-6 object-contain" alt="Meta Lead" />
+                <div className="absolute left-2 sm:-left-4 top-8 sm:top-1/4 z-30 bg-[#111111]/90 backdrop-blur-xl border border-lime-500/30 p-3 sm:p-4 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex items-center gap-3 sm:gap-4 animate-[float_5s_ease-in-out_infinite] transform -rotate-2 max-w-[260px] sm:max-w-none">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-lime-500/20 flex items-center justify-center border border-lime-500/50 shrink-0">
+                    <img src="https://cdn.simpleicons.org/meta/0668E1" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" alt="Meta Lead" />
                   </div>
-                  <div>
-                    <p className="text-lime-400 font-bold text-sm tracking-wide font-sans">New Lead: Facebook Ads</p>
-                    <p className="text-white font-medium text-lg font-sans">Rajesh Kumar (+91 98*** ****)</p>
-                    <p className="text-zinc-400 text-xs mt-1 font-sans">Routed in 0.4s to Agent Priya</p>
+                  <div className="overflow-hidden">
+                    <p className="text-lime-400 font-bold text-xs sm:text-sm tracking-wide font-sans truncate">New Lead: Facebook Ads</p>
+                    <p className="text-white font-medium text-sm sm:text-lg font-sans truncate">Rajesh Kumar (+91 98***)</p>
+                    <p className="text-zinc-400 text-[10px] sm:text-xs mt-0.5 font-sans truncate">Routed in 0.4s to Priya</p>
                   </div>
                 </div>
 
                 {/* Floating UI 2: Conversion Metric */}
-                <div className="absolute -right-4 bottom-1/4 z-30 bg-[#111111]/90 backdrop-blur-xl border border-[#333] p-5 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col gap-2 animate-[float_7s_ease-in-out_infinite] transform rotate-3">
-                  <div className="flex items-center justify-between gap-6 mb-2">
-                    <span className="text-zinc-400 font-medium text-sm font-sans">Close Rate</span>
-                    <span className="text-green-400 text-xs font-bold bg-green-400/10 px-2 py-1 rounded-md font-sans">+24%</span>
+                <div className="absolute right-2 sm:-right-4 bottom-8 sm:bottom-1/4 z-30 bg-[#111111]/90 backdrop-blur-xl border border-[#333] p-3 sm:p-5 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col gap-1 sm:gap-2 animate-[float_7s_ease-in-out_infinite] transform rotate-3">
+                  <div className="flex items-center justify-between gap-4 sm:gap-6 mb-1 sm:mb-2">
+                    <span className="text-zinc-400 font-medium text-xs sm:text-sm font-sans">Close Rate</span>
+                    <span className="text-green-400 text-[10px] sm:text-xs font-bold bg-green-400/10 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md font-sans">+24%</span>
                   </div>
-                  <div className="text-3xl font-black text-white font-sans">42.8%</div>
-                  <div className="w-full bg-zinc-800 h-2 rounded-full mt-1 overflow-hidden">
+                  <div className="text-xl sm:text-3xl font-black text-white font-sans">42.8%</div>
+                  <div className="w-full bg-zinc-800 h-1.5 sm:h-2 rounded-full mt-1 overflow-hidden">
                     <div className="bg-lime-400 h-full w-[42.8%] rounded-full" />
                   </div>
                 </div>
@@ -295,7 +295,7 @@ export default function CallEasy() {
                 </div>
 
                 {/* Floating Meta Tag */}
-                <div className="absolute -top-6 -right-6 bg-white text-black font-black font-sans px-6 py-4 rounded-2xl shadow-2xl transform rotate-6 border-4 border-[#0a0a0a] z-30">
+                <div className="absolute top-4 right-4 sm:-top-6 sm:-right-6 bg-white text-black font-black font-sans px-4 sm:px-6 py-2.5 sm:py-4 rounded-2xl shadow-2xl transform rotate-3 sm:rotate-6 border-2 sm:border-4 border-[#0a0a0a] z-30 text-xs sm:text-base">
                   Official API Provider
                 </div>
 
@@ -319,7 +319,7 @@ export default function CallEasy() {
                 <span className="flex w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
                 <span className="text-lime-400 text-sm font-semibold tracking-widest uppercase font-sans">Built For Bharat</span>
               </div>
-              <h2 className="text-5xl sm:text-7xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.9] mb-8 font-sans uppercase">
+              <h2 className="text-4xl sm:text-7xl lg:text-[7.5rem] font-black text-white tracking-tighter leading-[0.9] mb-8 font-sans uppercase">
                 INDIA'S MSMEs <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-100 to-green-500 animate-[gradient-shift_5s_ease_infinite] bg-[length:200%_auto]">LOVE THIS.</span>
               </h2>
               <p className="text-xl md:text-2xl text-zinc-400 font-medium mb-12 max-w-2xl mx-auto font-sans leading-relaxed">
@@ -351,7 +351,7 @@ export default function CallEasy() {
           
           {/* Abstract background typography in CTA */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04] overflow-hidden z-10">
-            <span className="text-[25rem] sm:text-[35rem] lg:text-[45rem] font-black text-white leading-none whitespace-nowrap tracking-tighter font-sans">CALLEASY</span>
+            <span className="text-[12rem] sm:text-[35rem] lg:text-[45rem] font-black text-white leading-none whitespace-nowrap tracking-tighter font-sans">CALLEASY</span>
           </div>
         </section>
 
