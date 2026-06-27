@@ -12,7 +12,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "publish:blogs": "node scripts/publish-10-blogs.js"
+    "publish:blogs": "node scripts/publish-10-blogs.js",
+    "publish:cloud": "node scripts/publish-cloud-shell.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",
