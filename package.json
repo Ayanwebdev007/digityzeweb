@@ -11,7 +11,8 @@
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish:blogs": "node scripts/publish-10-blogs.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",
