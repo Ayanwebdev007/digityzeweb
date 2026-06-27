@@ -7,7 +7,7 @@ import { caseStudies } from '../data/content';
 export default function CaseStudies() {
   return (
     <main className="bg-slate-50">
-      <SEO title="CaseStudies" description="View our customer success stories, real-world impact, and validated growth through custom SaaS platforms and automated workflows." url="/case-studies" />
+      <SEO title="Case Studies" description="View our customer success stories, real-world impact, and validated growth through custom SaaS platforms and automated workflows." url="/case-studies" />
       {/* Premium Dark Hero Section */}
       <section className="relative h-[500px] lg:h-[700px] flex flex-col justify-center pt-16 overflow-hidden bg-brand-primary">
         {/* Background Image & Overlays */}

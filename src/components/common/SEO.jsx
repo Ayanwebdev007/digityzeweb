@@ -42,7 +42,39 @@ export default function SEO({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {/* JSON-LD Structured Data for Google Rich Snippets */}
+      {/* JSON-LD Structured Data for Google Entity Authority & Brand Recognition */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://digityzeinternational.com/#organization",
+              "name": "Digityze International",
+              "alternateName": ["Digityze International™", "Digityze", "Digityze International Consulting"],
+              "url": "https://digityzeinternational.com",
+              "logo": "https://digityzeinternational.com/digityze%20logo%2001.png",
+              "description": "Global technology and business transformation company helping organizations modernize, scale, and digitize operations worldwide.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bangalore",
+                "addressCountry": "IN"
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://digityzeinternational.com/#website",
+              "url": "https://digityzeinternational.com",
+              "name": "Digityze International™",
+              "publisher": {
+                "@id": "https://digityzeinternational.com/#organization"
+              }
+            }
+          ]
+        })}
+      </script>
+
+      {/* Page-specific custom JSON-LD Schema */}
       {schema && (
         <script type="application/ld+json">
           {JSON.stringify(schema)}

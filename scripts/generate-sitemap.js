@@ -36,7 +36,8 @@ async function generateSitemap() {
           const docId = doc.name.split('/').pop();
           // Prefer slug if it exists
           const slug = doc.fields?.slug?.stringValue || docId;
-          urls.push(`/insights/${slug}`);
+          const cleanSlug = slug.replace(/^\/+/, '');
+          urls.push(`/insights/${cleanSlug}`);
         });
         console.log(`✅ Fetched ${data.documents.length} dynamic insights from Firestore.`);
       }
