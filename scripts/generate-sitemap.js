@@ -17,7 +17,9 @@ const staticRoutes = [
   '/insights',
   '/case-studies',
   '/careers',
-  '/contact'
+  '/contact',
+  '/calleasy',
+  '/delhi-software-development-digital-marketing-agency'
 ];
 
 async function generateSitemap() {

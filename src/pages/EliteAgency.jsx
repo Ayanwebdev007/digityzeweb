@@ -18,9 +18,9 @@ export default function EliteAgency() {
       {
         "@type": "LocalBusiness",
         "name": "Digityze International",
-        "image": "https://digityze.com/images/delhi-business.png",
-        "@id": "https://digityze.com/#organization",
-        "url": "https://digityze.com/elite-digital-agency",
+        "image": "https://digityzeinternational.com/images/delhi-business.png",
+        "@id": "https://digityzeinternational.com/#organization",
+        "url": "https://digityzeinternational.com/delhi-software-development-digital-marketing-agency",
         "telephone": "+91-9876543210", 
         "address": {
           "@type": "PostalAddress",
@@ -36,7 +36,7 @@ export default function EliteAgency() {
         "@type": "Service",
         "serviceType": "Software Development & Digital Marketing",
         "provider": {
-          "@id": "https://digityze.com/#organization"
+          "@id": "https://digityzeinternational.com/#organization"
         },
         "areaServed": {
           "@type": "City",
@@ -49,10 +49,10 @@ export default function EliteAgency() {
   return (
     <div className="bg-navy-950 min-h-screen text-white overflow-hidden font-sans">
       <Helmet>
-        <title>Top Software Development & Digital Marketing for Delhi Businesses | Digityze</title>
-        <meta name="description" content="Rank #1 with Digityze. We are certified Google and Meta partners helping Delhi business owners dominate through elite software development and digital marketing." />
-        <meta name="keywords" content="software development companies in delhi, tech companies delhi, digital marketing companies delhi, google business profile ranking company delhi, design company delhi, delhi business owners" />
-        <link rel="canonical" href="https://digityze.com/elite-digital-agency" />
+        <title>Top Software Development & Digital Marketing Agency Delhi | Digityze International</title>
+        <meta name="description" content="Rank #1 in Delhi with Digityze International. We are certified technology partners helping Delhi business owners dominate through custom software development, SaaS platforms, and automated lead generation." />
+        <meta name="keywords" content="software development agency in delhi, tech companies delhi, digital marketing agency delhi, custom software development delhi, top IT company delhi NCR, delhi business owners" />
+        <link rel="canonical" href="https://digityzeinternational.com/delhi-software-development-digital-marketing-agency" />
         <script type="application/ld+json">
           {JSON.stringify(schema)}
         </script>

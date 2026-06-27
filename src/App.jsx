@@ -72,6 +72,7 @@ export default function App() {
               <Route path="/platforms" element={<Platforms />} />
               <Route path="/calleasy" element={<CallEasy />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/delhi-software-development-digital-marketing-agency" element={<EliteAgency />} />
               <Route path="/elite-digital-agency" element={<EliteAgency />} />
 
               {/* Admin Routes */}
